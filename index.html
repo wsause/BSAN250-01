@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10161d">
+  <title>Classroom OS | Professor dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><span class="brand-mark">+</span><span>classroom<span class="brand-accent">OS</span></span></div>
+      <div class="sidebar-label">Workspace</div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-view="overview"><span class="nav-icon">&#9632;</span>Overview</button>
+        <button class="nav-item" data-view="assignments"><span class="nav-icon">&#10003;</span>Assignments <span class="nav-count">4</span></button>
+        <button class="nav-item" data-view="students"><span class="nav-icon">&#9673;</span>Students</button>
+        <button class="nav-item" data-view="grades"><span class="nav-icon">&#9733;</span>Grades</button>
+        <button class="nav-item" data-view="calendar"><span class="nav-icon">&#9636;</span>Calendar</button>
+      </nav>
+      <div class="sidebar-label second-label">Your classes</div>
+      <div class="class-list">
+        <button class="class-switcher selected"><span class="class-dot orange"></span><span><strong>BSAN 250</strong><small>Business Analytics</small></span><span class="more">•••</span></button>
+        <button class="class-switcher"><span class="class-dot blue"></span><span><strong>MGMT 312</strong><small>Operations Management</small></span></button>
+        <button class="class-switcher"><span class="class-dot purple"></span><span><strong>BA 401</strong><small>Senior Capstone</small></span></button>
+      </div>
+      <div class="sidebar-bottom">
+        <div class="tip-card"><span class="tip-spark">✦</span><p><strong>Quick tip</strong><br>Use <kbd>⌘ K</kbd> to jump anywhere.</p></div>
+        <button class="settings-button"><span>⚙</span> Settings</button>
+        <div class="profile"><div class="avatar avatar-lg">JS</div><span><strong>Jordan Smith</strong><small>Professor</small></span><span class="chevron">⌄</span></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobile-menu" aria-label="Open navigation">☰</button>
+        <div class="breadcrumb"><span>Fall 2024</span><b>/</b><strong>BSAN 250</strong></div>
+        <div class="top-actions">
+          <button class="icon-button notification-button" aria-label="Notifications"><span class="notification-dot"></span>♢</button>
+          <div class="top-avatar avatar">JS</div>
+        </div>
+      </header>
+
+      <div class="page-wrap" id="page-wrap">
+        <section class="welcome-row">
+          <div><p class="eyebrow">Tuesday, October 15, 2024 <span class="live-dot"></span> LIVE TERM</p><h1>Good morning, Jordan<span class="period">.</span></h1><p class="subheading">Here is the pulse of your class today.</p></div>
+          <button class="primary-button" id="open-modal"><span>+</span> New assignment</button>
+        </section>
+
+        <section class="stats-grid" aria-label="Class summary">
+          <article class="stat-card accent-card"><div class="stat-top"><span>CLASS HEALTH</span><span class="trend up">↗ 4.2%</span></div><div class="stat-value">88<span class="unit">%</span></div><div class="progress-track"><span style="width:88%"></span></div><p>Overall class average</p></article>
+          <article class="stat-card"><div class="stat-top"><span>STUDENTS</span><span class="stat-icon">◎</span></div><div class="stat-value">42</div><p><span class="mini-positive">+2</span> since last week</p><div class="avatar-stack"><span class="avatar xs coral">AL</span><span class="avatar xs mint">KR</span><span class="avatar xs blue-bg">MC</span><span class="avatar xs gold">+39</span></div></article>
+          <article class="stat-card"><div class="stat-top"><span>ATTENDANCE</span><span class="trend up">↗ 2.8%</span></div><div class="stat-value">94<span class="unit">%</span></div><p><span class="mini-positive">+2.8%</span> from last month</p><div class="attendance-bars"><i style="height:48%"></i><i style="height:62%"></i><i style="height:55%"></i><i style="height:77%"></i><i style="height:68%"></i><i style="height:91%"></i><i class="current" style="height:100%"></i></div></article>
+          <article class="stat-card"><div class="stat-top"><span>TO REVIEW</span><span class="stat-icon alert">!</span></div><div class="stat-value">18</div><p>submissions waiting</p><button class="text-link" data-view-target="assignments">Review queue <span>→</span></button></article>
+        </section>
+
+        <section class="dashboard-grid">
+          <article class="panel assignments-panel">
+            <div class="panel-heading"><div><p class="eyebrow">THIS WEEK</p><h2>Assignment pulse</h2></div><button class="more-button" aria-label="More assignment options">•••</button></div>
+            <div class="assignment-list" id="assignment-list">
+              <div class="assignment-row" data-status="active"><div class="assignment-type spreadsheet">▦</div><div class="assignment-info"><strong>Data visualization lab</strong><span>Due today · 11:59 PM</span></div><div class="assignment-progress"><div class="ring ring-orange"><span>78%</span></div><span class="status-text">33 / 42 turned in</span></div><button class="row-arrow">→</button></div>
+              <div class="assignment-row" data-status="active"><div class="assignment-type case">◈</div><div class="assignment-info"><strong>Case study: Patagonia</strong><span>Due Thu, Oct 17</span></div><div class="assignment-progress"><div class="ring ring-blue"><span>43%</span></div><span class="status-text">18 / 42 started</span></div><button class="row-arrow">→</button></div>
+              <div class="assignment-row" data-status="graded"><div class="assignment-type quiz">✦</div><div class="assignment-info"><strong>Quiz 04: Regression</strong><span>Graded yesterday</span></div><div class="assignment-progress"><div class="ring ring-green"><span>96%</span></div><span class="status-text">Avg. score: 8.6 / 10</span></div><button class="row-arrow">→</button></div>
+              <div class="assignment-row" data-status="upcoming"><div class="assignment-type reading">≡</div><div class="assignment-info"><strong>Reading: Chapter 09</strong><span>Due Mon, Oct 21</span></div><div class="assignment-progress"><div class="ring ring-muted"><span>—</span></div><span class="status-text">Not started</span></div><button class="row-arrow">→</button></div>
+            </div>
+            <button class="panel-footer-link" data-view-target="assignments">View all assignments <span>↗</span></button>
+          </article>
+
+          <article class="panel activity-panel">
+            <div class="panel-heading"><div><p class="eyebrow">LIVE FEED</p><h2>Recent activity</h2></div><span class="live-pill"><i></i> Live</span></div>
+            <div class="activity-list">
+              <div class="activity-item"><div class="activity-icon coral-icon">↗</div><div><p><strong>Maya Chen</strong> submitted <em>Data visualization lab</em></p><span>8 minutes ago</span></div></div>
+              <div class="activity-item"><div class="activity-icon blue-icon">✦</div><div><p><strong>Quiz 04</strong> is ready to review</p><span>34 submissions · 1 hour ago</span></div></div>
+              <div class="activity-item"><div class="activity-icon green-icon">◎</div><div><p><strong>Attendance</strong> was marked for today</p><span>42 of 42 present · 2 hours ago</span></div></div>
+              <div class="activity-item"><div class="activity-icon gold-icon">●</div><div><p><strong>Alex Lee</strong> asked a question in <em>Class forum</em></p><span>Yesterday at 4:32 PM</span></div></div>
+            </div>
+            <button class="panel-footer-link">Open activity log <span>↗</span></button>
+          </article>
+        </section>
+
+        <section class="lower-grid">
+          <article class="panel roster-panel"><div class="panel-heading"><div><p class="eyebrow">CLASS ROSTER</p><h2>Students</h2></div><button class="outline-button" id="export-button">Export CSV <span>↓</span></button></div><div class="roster-tools"><label class="search-field"><span>⌕</span><input id="student-search" type="search" placeholder="Search students..."></label><button class="filter-button" id="filter-button">Filter <span>⌄</span></button></div><div class="student-table-wrap"><table><thead><tr><th>Student</th><th>Progress</th><th>Last active</th><th>Status</th><th></th></tr></thead><tbody id="student-table"><tr><td><div class="student-cell"><span class="avatar coral">MC</span><span><strong>Maya Chen</strong><small>maya.chen@university.edu</small></span></div></td><td><div class="table-progress"><span style="width:92%"></span></div><small>92%</small></td><td>Just now</td><td><span class="status-badge on-track">On track</span></td><td><button class="kebab">•••</button></td></tr><tr><td><div class="student-cell"><span class="avatar blue-bg">AL</span><span><strong>Alex Lee</strong><small>alex.lee@university.edu</small></span></div></td><td><div class="table-progress"><span style="width:84%"></span></div><small>84%</small></td><td>2 hrs ago</td><td><span class="status-badge on-track">On track</span></td><td><button class="kebab">•••</button></td></tr><tr><td><div class="student-cell"><span class="avatar mint">KR</span><span><strong>Kim Rivera</strong><small>kim.rivera@university.edu</small></span></div></td><td><div class="table-progress warning"><span style="width:68%"></span></div><small>68%</small></td><td>Yesterday</td><td><span class="status-badge check-in">Check in</span></td><td><button class="kebab">•••</button></td></tr><tr><td><div class="student-cell"><span class="avatar gold">JT</span><span><strong>Jordan Taylor</strong><small>jordan.t@university.edu</small></span></div></td><td><div class="table-progress warning"><span style="width:61%"></span></div><small>61%</small></td><td>Oct 11</td><td><span class="status-badge check-in">Check in</span></td><td><button class="kebab">•••</button></td></tr></tbody></table></div><button class="panel-footer-link">View full roster <span>↗</span></button></article>
+          <article class="panel focus-panel"><div class="panel-heading"><div><p class="eyebrow">AT A GLANCE</p><h2>Teaching focus</h2></div><span class="focus-number">03</span></div><div class="focus-list"><div><span class="focus-marker orange-marker">01</span><p><strong>Review late submissions</strong><small>4 students are past due on the visualization lab.</small></p><button>→</button></div><div><span class="focus-marker blue-marker">02</span><p><strong>Post next week's reading</strong><small>Keep the momentum going before Friday.</small></p><button>→</button></div><div><span class="focus-marker green-marker">03</span><p><strong>Check in with Kim Rivera</strong><small>Progress dipped below the class average.</small></p><button>→</button></div></div><div class="focus-note"><span>✦</span> Small, consistent feedback compounds.</div></article>
+        </section>
+        <footer class="page-footer"><span>ClassroomOS <b>·</b> Fall 2024</span><span>Last synced 2 minutes ago <i></i></span></footer>
+      </div>
+    </main>
+  </div>
+  <div class="modal-backdrop" id="modal"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><button class="modal-close" id="close-modal" aria-label="Close">×</button><p class="eyebrow">NEW WORK</p><h2 id="modal-title">Create an assignment</h2><p class="modal-copy">Give your class something worth digging into.</p><form id="assignment-form"><label>Assignment title<input required type="text" placeholder="e.g. Customer segmentation lab"></label><div class="form-row"><label>Due date<input required type="date"></label><label>Points<input required type="number" min="1" placeholder="100"></label></div><label>Type<select><option>Project</option><option>Quiz</option><option>Reading</option><option>Discussion</option></select></label><button class="primary-button" type="submit">Create assignment <span>→</span></button></form></div></div>
+  <div class="toast" id="toast">Assignment created <span>✓</span></div>
+  <script src="app.js"></script>
+</body>
+</html>
